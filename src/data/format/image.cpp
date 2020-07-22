@@ -20,6 +20,18 @@
 
 void export_image(const SetP& set, const CardP& card, const String& filename) {
   Image img = export_bitmap(set, card).ConvertToImage();
+  //TODO - Rescale the image to 750x1050
+  img.Rescale(750, 1050, wxIMAGE_QUALITY_NORMAL);
+  //Set Image Resolution to 300dpi for png, bmp, jpg, and tif files
+  img.SetOption(wxIMAGE_OPTION_RESOLUTIONUNIT, wxIMAGE_RESOLUTION_INCHES);
+  img.SetOption(wxIMAGE_OPTION_RESOLUTIONX, 300);
+  img.SetOption(wxIMAGE_OPTION_RESOLUTIONY, 300);
+  //Set PNG image Compression Level - otherwise ignored
+  img.SetOption(wxIMAGE_OPTION_PNG_COMPRESSION_LEVEL, 9);
+  img.SetOption(wxIMAGE_OPTION_PNG_COMPRESSION_MEM_LEVEL, 9);
+  //Set JPG image quality - otherwise ignored
+  img.SetOption(wxIMAGE_OPTION_QUALITY, 100);
+  //Save the image to selected file type
   img.SaveFile(filename);  // can't use Bitmap::saveFile, it wants to know the file type
               // but image.saveFile determines it automagicly
 }
