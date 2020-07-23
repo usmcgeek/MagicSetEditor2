@@ -33,7 +33,7 @@ void AboutWindow::onPaint(wxPaintEvent& ev) {
   draw(dc);
 }
 
-const char* MSE_AUTHORS[] = {"Twan van Laarhoven (twanvl)", "Sean Hunt (coppro)", "Alissa Rao (Lymia)"};
+const char* MSE_AUTHORS[] = {"Twan van Laarhoven (twanvl)", "Sean Hunt (coppro)", "Alissa Rao (Lymia)", "modified for 300dpi by Jason Smith (USMCGeek)"};
 
 void AboutWindow::draw(DC& dc) {
   wxSize ws = GetClientSize();
