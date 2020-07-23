@@ -62,7 +62,7 @@ cmake --build build
 Install the dependencies, for example on a debian based system
 ````
 sudo apt install g++
-sudo apt install libboost-dev libwxgtk3.0-gtk3-dev libhunspell-dev
+sudo apt install libboost-dev libboost-regex-dev libwxgtk3.0-gtk3-dev libhunspell-dev
 ````
 Then use cmake to build
 ````
@@ -73,22 +73,4 @@ Use `CMAKE_BUILD_TYPE=Debug` for a debug build
 
 ## Building on Mac
 
-Install the dependencies, for example using Homebrew
-````
-brew install boost wxwidgets hunspell
-````
-Note: Tested with boost 1.72.0_3, wxmac (wxwidgets) 3.0.5.1_1, hunspell 1.7.0_2
-Then use cmake to build
-````
-mkdir build && cd build
-cmake -DCMAKE_BUILD_TYPE=Release ..
-cmake --build ..
-````
-Use `CMAKE_BUILD_TYPE=Debug` for a debug build
-
-Finally, copy the resources to a SharedSupport directory and run the executable
-````
-mkdir SharedSupport && cd SharedSupport
-cp -r ../resource SharedSupport/
-./magicseteditor
-````
+It should be possible to use wxWidgets on mac as well, but this is untested so far.
